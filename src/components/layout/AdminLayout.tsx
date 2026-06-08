@@ -4,6 +4,7 @@ import {
   Wrench, LogOut, ChevronRight,
 } from 'lucide-react';
 import { useAuth } from '../../store/auth';
+import LaburoLogo from '../common/LaburoLogo';
 
 const adminNav = [
   { to: '/admin', icon: LayoutDashboard, label: 'Dashboard', end: true },
@@ -24,14 +25,9 @@ export default function AdminLayout() {
       {/* Sidebar fijo */}
       <aside className="fixed left-0 top-0 h-full w-60 bg-gray-900 flex flex-col z-40">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 px-5 h-16 border-b border-gray-700">
-          <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center">
-            <Wrench className="w-4 h-4 text-white" />
-          </div>
-          <div>
-            <p className="text-white text-sm font-bold leading-none">OficiosApp</p>
-            <p className="text-indigo-400 text-[10px] font-medium mt-0.5">Panel Admin</p>
-          </div>
+        <div className="px-5 h-16 border-b border-gray-700 flex items-center">
+          <LaburoLogo />
+          <span className="text-indigo-400 text-[10px] font-medium ml-auto">Admin</span>
         </div>
 
         {/* Nav */}

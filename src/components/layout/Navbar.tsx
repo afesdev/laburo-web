@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import {
-  Wrench, Search, MapPin, Heart, User, LogOut,
+  Search, MapPin, Heart, User, LogOut,
   PenSquare, LayoutDashboard, ChevronDown, Menu, X, Bell, TrendingUp,
 } from 'lucide-react';
 import { useAuth } from '../../store/auth';
+import LaburoLogo from '../common/LaburoLogo';
 
 const NAV = [
   { to: '/feed',   label: 'Inicio' },
@@ -53,12 +54,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/feed" className="flex items-center gap-2.5 flex-shrink-0 group mr-2">
-            <div className="w-8 h-8 rounded-[10px] bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow group-hover:shadow-md transition-all group-hover:scale-105">
-              <Wrench className="w-[15px] h-[15px] text-white" strokeWidth={2.5} />
-            </div>
-            <span className="text-[16px] font-black tracking-tight hidden sm:block">
-              <span className="text-gray-900">La</span><span className="text-indigo-600">buro</span>
-            </span>
+            <LaburoLogo size="sm" />
           </Link>
 
           {/* Nav pills — desktop */}

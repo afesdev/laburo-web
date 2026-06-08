@@ -19,7 +19,7 @@ export default function AppLayout() {
         </div>
       ) : (
         // Páginas normales — sin restricción de ancho, cada página maneja su layout
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-24 md:pb-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-24 md:pb-8">
           <Outlet />
         </main>
       )}

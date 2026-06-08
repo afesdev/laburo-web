@@ -43,7 +43,7 @@ export default function Buscar() {
 
   const [query, setQuery]         = useState(searchParams.get('q') ?? searchParams.get('categoria') ?? '');
   const [debounced, setDebounced] = useState(query);
-  const [tab, setTab]             = useState<Tab>('profesionales');
+  const [tab, setTab]             = useState<Tab>('publicaciones');
   const [showFilters, setShowFilters] = useState(false);
   const [filterVerif, setFilterVerif] = useState(false);
   const [filterRating, setFilterRating] = useState<number | null>(null);
@@ -91,16 +91,11 @@ export default function Buscar() {
   const filtersActive = filterVerif || filterRating !== null;
 
   return (
-    <div className="min-h-screen bg-[#F8F9FC] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pb-12">
+    <div className="pb-12">
 
       {/* ── HERO ── */}
-      <div className="relative pt-8 pb-6 mb-6 overflow-hidden">
-        {/* Fondo decorativo */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/80 via-white to-violet-50/60 pointer-events-none" />
-        <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-indigo-100/40 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 -left-6 w-32 h-32 rounded-full bg-violet-100/30 blur-2xl pointer-events-none" />
-
-        <div className="relative max-w-2xl">
+      <div className="pt-8 pb-6 mb-6">
+        <div className="max-w-2xl">
           <h1 className="text-[26px] sm:text-[32px] font-black text-gray-900 leading-tight mb-1">
             Encuentra el profesional<br />
             <span className="text-indigo-600">que necesitas</span>

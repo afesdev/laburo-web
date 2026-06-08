@@ -13,6 +13,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { useAuth } from '../../store/auth';
+import LaburoLogo from '../common/LaburoLogo';
 
 const mainNav = [
   { to: '/feed', icon: House, label: 'Inicio' },
@@ -90,13 +91,7 @@ export default function Sidebar() {
     <aside className="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-100 z-40 shadow-sm">
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 h-16 border-b border-gray-100 flex-shrink-0">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-sm">
-          <Wrench className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
-        </div>
-        <div>
-          <span className="text-[15px] font-bold text-gray-900 leading-none">OficiosApp</span>
-          <p className="text-[10px] text-gray-400 font-medium leading-none mt-0.5">Plataforma de servicios</p>
-        </div>
+        <LaburoLogo />
       </div>
 
       {/* Nav */}

@@ -67,7 +67,7 @@ export default function CarruselBanners({ banners }: { banners: Promocion[] }) {
       <button onClick={handleClick} className="w-full text-left group block">
         <div
           className="relative overflow-hidden rounded-2xl shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-0.5"
-          style={{ height: 'clamp(200px, 32vw, 280px)' }}
+          style={{ height: 'clamp(260px, 42vw, 380px)' }}
         >
           {/* Imagen */}
           {banner.banner?.imagen_url ? (
