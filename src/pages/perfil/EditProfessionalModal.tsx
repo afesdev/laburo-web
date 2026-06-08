@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import {
-  X, Plus, Trash2, Clock, MapPin, Globe, AlignLeft, Upload,
+  X, Plus, Trash2, Clock, MapPin, AlignLeft, Upload,
   Search, Loader2, Eye, EyeOff, ChevronRight, Check,
   Briefcase, Link2, DollarSign, Camera,
 } from 'lucide-react';
@@ -171,7 +171,7 @@ export default function EditProfessionalModal({ initial, onSave, onClose, isPend
 
         {/* ── Tabs ── */}
         <div className="flex items-center gap-1 px-6 py-3 border-b border-gray-100 overflow-x-auto flex-shrink-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {TABS.map((t, i) => {
+          {TABS.map((t, _) => {
             const Icon   = t.icon;
             const active = tab === t.id;
             return (

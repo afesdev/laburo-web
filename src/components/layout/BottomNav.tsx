@@ -21,9 +21,7 @@ export default function BottomNav() {
           <NavLink
             key={to}
             to={dest}
-            className={({ isActive }) =>
-              `relative flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-full`
-            }
+            className="relative flex flex-col items-center justify-center gap-0.5 min-w-[56px] h-full"
           >
             {({ isActive }) => (
               <>

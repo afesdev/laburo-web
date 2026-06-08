@@ -100,4 +100,6 @@ export interface Profesional {
   verificacion: Verificacione | null;
   resenas: ResenaProfesional[];
   publicaciones: PublicacioneResumida[];
+  promedio_resenas?: number;
+  total_resenas?: number;
 }

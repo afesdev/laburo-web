@@ -11,6 +11,9 @@ export interface FavoritoProfesional {
     ciudad: string;
     categoria: { id: number; nombre: string } | null;
     usuario: { id: number; nombre_completo: string; telefono: string };
+    verificacion?: { estado: string };
+    promedio_resenas?: number;
+    total_resenas?: number;
   };
 }
 

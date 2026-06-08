@@ -5,6 +5,7 @@ interface User {
   nombre_completo: string;
   email: string;
   telefono?: string;
+  foto_perfil_url?: string;
   rol: string;
 }
 

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import {
-  Search, MapPin, Heart, User, LogOut,
-  PenSquare, LayoutDashboard, ChevronDown, Menu, X, Bell, TrendingUp,
+  Search, Heart, User, LogOut,
+  PenSquare, LayoutDashboard, Menu, X, TrendingUp,
 } from 'lucide-react';
 import { useAuth } from '../../store/auth';
 import LaburoLogo from '../common/LaburoLogo';

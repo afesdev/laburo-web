@@ -83,7 +83,7 @@ export default function Mapa() {
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [radio, setRadio] = useState(25);
   const [gettingLocation, setGettingLocation] = useState(false);
-  const [selectedProf, setSelectedProf] = useState<number | null>(null);
+  const [, setSelectedProf] = useState<number | null>(null);
   const [showVisPanel, setShowVisPanel] = useState(false);
 
   // Perfil propio (solo si es profesional)
@@ -203,8 +203,8 @@ export default function Mapa() {
                     <Popup className="custom-popup" minWidth={220}>
                       <div className="p-1">
                         <div className="flex items-center gap-2.5 mb-3">
-                          <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 ring-2"
-                            style={{ ringColor: catColor }}>
+                          <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0 border-2"
+                            style={{ borderColor: catColor }}>
                             {prof.foto_perfil_url ? (
                               <img src={prof.foto_perfil_url} alt="" className="w-full h-full object-cover" />
                             ) : (

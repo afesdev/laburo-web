@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import {
-  Megaphone, Clock, CheckCircle, XCircle, Users, TrendingUp,
-  UserCheck, Camera, AlertTriangle,
+  Megaphone, Clock, CheckCircle, Users,
+  Camera, AlertTriangle,
 } from 'lucide-react';
 import api from '../../lib/api';
 import type { Promocion } from '../../types/promocion';

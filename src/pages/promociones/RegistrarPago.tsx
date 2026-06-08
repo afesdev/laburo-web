@@ -3,8 +3,6 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { ChevronLeft, Loader2, Copy, CheckCircle2 } from 'lucide-react';
 import { getPromocion, registrarPago } from '../../lib/promociones';
-import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
 
 const formatCOP = (n: number) =>
   new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);

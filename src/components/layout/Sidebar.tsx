@@ -1,13 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
-  House,
-  Search,
-  Heart,
-  MapPin,
-  User,
-  PenSquare,
-  Wrench,
-  LogOut,
+  House, Search, Heart, MapPin, User,
+  PenSquare, LogOut,
   LayoutDashboard,
   ShieldCheck,
   ChevronRight,

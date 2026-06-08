@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { getPlanes, crearPromocion, subirImagenBanner } from '../../lib/promociones';
 import { useAuth } from '../../store/auth';
-import type { PlanPromocion, TipoPromocion } from '../../types/promocion';
+import type { TipoPromocion } from '../../types/promocion';
 
 const TIPOS: { value: TipoPromocion; label: string; desc: string; icon: React.ElementType }[] = [
   { value: 'banner', label: 'Banner', desc: 'Imagen destacada en la pantalla de inicio', icon: Image },
