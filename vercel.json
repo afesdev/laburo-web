@@ -11,9 +11,8 @@
   ],
   "rewrites": [
     {
-      "source": "/(sitemap\\.xml|robots\\.txt|favicon\\.svg|og-cover\\.png|icons\\.svg)",
-      "destination": "/$1"
-    },
-    { "source": "/(.*)", "destination": "/index.html" }
+      "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)",
+      "destination": "/index.html"
+    }
   ]
 }
