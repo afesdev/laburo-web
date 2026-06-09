@@ -407,14 +407,11 @@ export default function ProfesionalDetail() {
             {user ? (
               <div className="p-4 space-y-2.5">
                 {prof.usuario.telefono && (
-                  <a
-                    href={`tel:${prof.usuario.telefono}`}
-                    className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white font-bold text-[14px] rounded-xl transition-colors"
-                  >
-                    <Phone className="w-4 h-4" />
-                    <span>Llamar</span>
-                    <span className="ml-auto text-green-200 text-[12px] font-normal">{prof.usuario.telefono}</span>
-                  </a>
+                  <div className="flex items-center gap-3 w-full px-4 py-3 bg-green-50 text-green-800 text-[14px] rounded-xl border border-green-200">
+                    <Phone className="w-4 h-4 text-green-600 shrink-0" />
+                    <span className="font-medium">Teléfono</span>
+                    <span className="ml-auto font-bold tracking-wide">{prof.usuario.telefono}</span>
+                  </div>
                 )}
                 {telLimpio && (
                   <a
