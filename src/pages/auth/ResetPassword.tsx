@@ -80,7 +80,7 @@ export default function ResetPassword() {
         </div>
 
         <div className="relative">
-          <LaburoLogo showText light />
+          <Link to="/feed"><LaburoLogo showText light /></Link>
         </div>
 
         <div className="relative space-y-6">
@@ -119,7 +119,7 @@ export default function ResetPassword() {
       {/* Panel derecho — formulario */}
       <div className="flex-1 flex flex-col justify-center items-center px-6 py-10 bg-white">
         <div className="lg:hidden mb-8">
-          <LaburoLogo showText />
+          <Link to="/feed"><LaburoLogo showText /></Link>
         </div>
 
         <div className="w-full max-w-[400px]">

@@ -77,7 +77,7 @@ export default function Register() {
         </div>
 
         <div className="relative">
-          <LaburoLogo showText light />
+          <Link to="/feed"><LaburoLogo showText light /></Link>
         </div>
 
         <div className="relative space-y-8">
@@ -119,7 +119,7 @@ export default function Register() {
       <div className="flex-1 flex flex-col justify-center items-center px-6 py-10 bg-white overflow-y-auto">
         {/* Logo visible solo en móvil */}
         <div className="lg:hidden mb-8">
-          <LaburoLogo showText />
+          <Link to="/feed"><LaburoLogo showText /></Link>
         </div>
 
         <div className="w-full max-w-[420px]">
