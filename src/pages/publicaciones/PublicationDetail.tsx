@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQuery, useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
@@ -263,8 +264,49 @@ export default function PublicationDetail() {
   const avgRating = pub.promedio_resenas ?? 0;
   const totalResenas = pub.total_resenas ?? 0;
 
+  const pubPageUrl  = `https://www.laburo.click/publicaciones/${pub.id}`;
+  const pubTitle    = `${pub.titulo} — ${pub.profesional.usuario.nombre_completo} | Laburo`;
+  const pubDesc     = pub.descripcion
+    ? (pub.descripcion.length > 160 ? pub.descripcion.slice(0, 157) + '…' : pub.descripcion)
+    : `${pub.titulo} por ${pub.profesional.usuario.nombre_completo} en Laburo.`;
+  const pubImage    = pub.imagen_url ?? 'https://www.laburo.click/og-cover.png';
+
+  const pubJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: pub.titulo,
+    description: pub.descripcion ?? undefined,
+    url: pubPageUrl,
+    image: pub.imagen_url ?? undefined,
+    brand: { '@type': 'Person', name: pub.profesional.usuario.nombre_completo },
+    ...(avgRating > 0 && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: avgRating.toFixed(1),
+        reviewCount: totalResenas,
+        bestRating: '5',
+        worstRating: '1',
+      },
+    }),
+  };
+
   return (
     <>
+      <Helmet>
+        <title>{pubTitle}</title>
+        <meta name="description" content={pubDesc} />
+        <link rel="canonical" href={pubPageUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={pubTitle} />
+        <meta property="og:description" content={pubDesc} />
+        <meta property="og:url" content={pubPageUrl} />
+        <meta property="og:image" content={pubImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pubTitle} />
+        <meta name="twitter:description" content={pubDesc} />
+        <meta name="twitter:image" content={pubImage} />
+        <script type="application/ld+json">{JSON.stringify(pubJsonLd)}</script>
+      </Helmet>
       {lightboxOpen && allFotos.length > 0 && (
         <Lightbox fotos={allFotos} startAt={lightboxStart}
           onClose={() => setLightboxOpen(false)} />

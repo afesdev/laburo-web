@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloquear rutas privadas/admin
+Disallow: /admin
+Disallow: /perfil
+Disallow: /favoritos
+Disallow: /publicaciones/crear
+Disallow: /promociones
+
+Sitemap: https://www.laburo.click/sitemap.xml

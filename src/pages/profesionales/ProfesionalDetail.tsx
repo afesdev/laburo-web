@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
@@ -89,8 +90,52 @@ export default function ProfesionalDetail() {
 
   const telLimpio = prof.usuario.telefono?.replace(/[^0-9]/g, '') ?? '';
 
+  const nombre      = prof.usuario.nombre_completo;
+  const categoria   = prof.categoria?.nombre ?? 'Profesional';
+  const ciudad      = prof.ciudad ?? '';
+  const bio         = prof.descripcion_perfil ?? `${nombre} ofrece servicios de ${categoria}${ciudad ? ` en ${ciudad}` : ''}.`;
+  const foto        = prof.foto_perfil_url ?? 'https://www.laburo.click/og-cover.png';
+  const pageUrl     = `https://www.laburo.click/profesionales/${prof.id}`;
+  const pageTitle   = `${nombre} — ${categoria}${ciudad ? ` en ${ciudad}` : ''} | Laburo`;
+  const pageDesc    = bio.length > 160 ? bio.slice(0, 157) + '…' : bio;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: nombre,
+    jobTitle: categoria,
+    ...(ciudad && { address: { '@type': 'PostalAddress', addressLocality: ciudad } }),
+    ...(prof.foto_perfil_url && { image: prof.foto_perfil_url }),
+    ...(prof.descripcion_perfil && { description: prof.descripcion_perfil }),
+    url: pageUrl,
+    ...(avgRating > 0 && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: avgRating.toFixed(1),
+        reviewCount: totalResenas,
+        bestRating: '5',
+        worstRating: '1',
+      },
+    }),
+  };
+
   return (
     <div className="min-h-screen bg-[#F8F9FC] -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pb-12">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={foto} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDesc} />
+        <meta name="twitter:image" content={foto} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
 
       {/* ── Botón volver ── */}
       <div className="pt-4 mb-0">

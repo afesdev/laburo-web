@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import {
@@ -96,6 +97,14 @@ export default function Feed() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FC]">
+      <Helmet>
+        <title>Laburo — Encuentra profesionales y servicios cerca de ti</title>
+        <meta name="description" content="Descubre plomeros, electricistas, carpinteros, pintores y más profesionales verificados cerca de ti. Compara precios y contrata fácil." />
+        <link rel="canonical" href="https://www.laburo.click/feed" />
+        <meta property="og:title" content="Laburo — Encuentra profesionales y servicios cerca de ti" />
+        <meta property="og:description" content="Descubre plomeros, electricistas, carpinteros, pintores y más profesionales verificados cerca de ti." />
+        <meta property="og:url" content="https://www.laburo.click/feed" />
+      </Helmet>
 
       {/* ─────────────────── HERO (light) ─────────────────── */}
       <section

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import {
@@ -90,8 +91,24 @@ export default function Buscar() {
 
   const filtersActive = filterVerif || filterRating !== null;
 
+  const pageTitle = debounced
+    ? `"${debounced}" — Buscar en Laburo`
+    : 'Buscar profesionales y publicaciones — Laburo';
+  const pageDesc = debounced
+    ? `Resultados de búsqueda para "${debounced}". Profesionales verificados y publicaciones en Laburo.`
+    : 'Busca plomeros, electricistas, pintores y más profesionales verificados. Compara precios y contrata fácil en Laburo.';
+
   return (
     <div className="pb-12">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <meta name="robots" content={debounced ? 'noindex, follow' : 'index, follow'} />
+        <link rel="canonical" href="https://www.laburo.click/search" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content="https://www.laburo.click/search" />
+      </Helmet>
 
       {/* ── HERO ── */}
       <div className="pt-8 pb-6 mb-6">
